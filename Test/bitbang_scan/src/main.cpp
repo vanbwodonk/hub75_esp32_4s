@@ -61,8 +61,8 @@ void setup()
   digitalWrite(G2_PIN, LOW);
   digitalWrite(B2_PIN, LOW);
 
-  digitalWrite(A_PIN, LOW);
-  digitalWrite(B_PIN, LOW);
+  digitalWrite(A_PIN, HIGH);
+  digitalWrite(B_PIN, HIGH);
   digitalWrite(C_PIN, HIGH);
   digitalWrite(D_PIN, HIGH);
   digitalWrite(E_PIN, HIGH);
@@ -81,7 +81,7 @@ void loop()
 {
   for (int i = 0; i < 64; i++)
   {
-    if (i == idx)
+    if (i == 0 && addrs == 1)
     {
       digitalWrite(R1_PIN, HIGH);
       digitalWrite(R2_PIN, HIGH);
@@ -99,14 +99,15 @@ void loop()
     digitalWrite(CLK_PIN, LOW);
   }
   digitalWrite(LAT_PIN, HIGH);
-  setAddress(addrs);
+  digitalWrite(LAT_PIN, LOW);
+
   addrs++;
   if (addrs == 4)
     addrs = 0;
-  digitalWrite(LAT_PIN, LOW);
+  setAddress(addrs);
 
   // delay to see pattern scan
-  delay(20);
+  delay(5);
   idx_cnt++;
   if (idx_cnt == 8)
   {
@@ -120,6 +121,8 @@ void loop()
 /*
   HUB75 1/4 scan has 2 addr A & B
   HUB75 1/8 scan has 3 addr A, B, C
+  HUB75 1/16 scan has 4 addr A, B, C, D
+  HUB75 1/32 scan has 5 addr A, B, C, D, E
 */
 void setAddress(uint8_t addr)
 {
@@ -168,6 +171,7 @@ void setAddress(uint8_t addr)
   default:
     digitalWrite(A_PIN, LOW);
     digitalWrite(B_PIN, LOW);
+    digitalWrite(C_PIN, LOW);
     break;
   }
 }
