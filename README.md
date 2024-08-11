@@ -1,3 +1,3 @@
 # hub75_esp32_4s
 
-try to learn HUB75 4s scanning. Led table view this [sheet]([HUB75-Scanning - Google Spreadsheet](https://docs.google.com/spreadsheets/d/1wl0qnniNshe2jdOVg8-lsXqSQhwrl6GQSU38_DoZ61U/edit?usp=sharing))
+try to learn HUB75 4s scanning. Led table view this [table](https://docs.google.com/spreadsheets/d/1wl0qnniNshe2jdOVg8-lsXqSQhwrl6GQSU38_DoZ61U/edit?usp=sharing)
